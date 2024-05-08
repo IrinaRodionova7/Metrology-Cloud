@@ -45,6 +45,7 @@
 							<xs:element name="DeviceID" type="xs:string"/>
 							<xs:element name="ParameterID" type="xs:string"/>
 							<xs:element name="Value" type="xs:string"/>
+							<xs:element name="ValueID" type="xs:string"/>
 						</xs:sequence>
 					</xs:complexType>
 				</xs:element>
