@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
     <xs:element name="root">
         <xs:complexType>
@@ -9,6 +10,7 @@
                 <xs:element type="xs:string" name="ManufacturerName"/>
                 <xs:element type="xs:string" name="CountryISO"/>
                 <xs:element type="xs:string" name="CountryName"/>
+                <xs:element type="xs:string" name="HtmlDescription"/>
                 <xs:element maxOccurs="unbounded" name="Devices">
                     <xs:complexType>
                         <xs:sequence>
