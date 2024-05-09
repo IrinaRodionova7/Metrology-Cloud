@@ -41,10 +41,10 @@
 				<xs:element maxOccurs="unbounded" name="Values">
 					<xs:complexType>
 						<xs:sequence>
-							<xs:element name="uid" type="xs:string"/>
 							<xs:element name="DeviceID" type="xs:string"/>
 							<xs:element name="ParameterID" type="xs:string"/>
 							<xs:element name="Value" type="xs:string"/>
+							<xs:element name="uid" type="xs:string"/>
 							<xs:element name="ValueID" type="xs:string"/>
 						</xs:sequence>
 					</xs:complexType>
