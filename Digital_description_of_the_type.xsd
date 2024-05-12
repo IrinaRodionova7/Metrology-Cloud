@@ -16,6 +16,7 @@
 					<xs:complexType>
 						<xs:sequence>
 							<xs:element type="xs:string" name="uid"/>
+							<xs:element type="xs:string" name="CategoryID"/>
 							<xs:element type="xs:string" name="CategoryName"/>
 							<xs:element type="xs:string" name="MitypeTitle"/>
 							<xs:element type="xs:string" name="MitypeNumber"/>
