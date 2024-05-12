@@ -31,6 +31,7 @@
 					<xs:complexType>
 						<xs:sequence>
 							<xs:element type="xs:string" name="ParameterID"/>
+							<xs:element type="xs:string" name="ParameterSectionNameID"/>
 							<xs:element type="xs:string" name="ParameterSectionName"/>
 							<xs:element type="xs:string" name="ParameterName"/>
 							<xs:element type="xs:string" name="ParameterDetailName"/>
