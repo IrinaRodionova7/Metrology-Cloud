@@ -12,7 +12,7 @@
 				<xs:element type="xs:string" name="CountryISO"/>  <!-- Код страны -->
 				<xs:element type="xs:string" name="Purpose"/>  <!-- Назначение -->
 				<xs:element type="xs:string" name="Description"/>  <!-- Описание -->
-				<xs:element maxOccurs="unbounded" name="Modifications">  <!-- Комбинации модификацй -->
+				<xs:element maxOccurs="unbounded" name="Modifications">  <!-- Комбинации модификаций -->
 					<xs:complexType>
 						<xs:sequence>
 							<xs:element type="xs:string" name="uid"/>  <!-- Уникальный идентификатор модификации -->
