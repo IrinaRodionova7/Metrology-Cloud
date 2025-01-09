@@ -30,24 +30,22 @@
 				<xs:element maxOccurs="unbounded" name="Parameters">  <!-- Параметры -->
 					<xs:complexType>
 						<xs:sequence>
-							<xs:element type="xs:string" name="ParameterID"/>   <!-- Уникальный идентификатор номер параметра -->
-							<xs:element type="xs:string" name="ParameterSectionNameID"/>
-							<xs:element type="xs:string" name="ParameterSectionName"/>
-							<xs:element type="xs:string" name="ParameterName"/>
-							<xs:element type="xs:string" name="ParameterDetailName"/>
-							<xs:element type="xs:string" name="MeasurementName"/>
-							<xs:element type="xs:string" name="MeasurementGroupCode"/>
+							<xs:element type="xs:string" name="ParameterID"/>   <!-- Уникальный идентификатор параметра -->
+							<xs:element type="xs:string" name="ParameterSectionName"/>  <!-- Наименование группы параметров -->
+							<xs:element type="xs:string" name="ParameterName"/>  <!-- Наименование параметра -->
+							<xs:element type="xs:string" name="ParameterDetailName"/>  <!-- Детализированное наименование параметра -->
+							<xs:element type="xs:string" name="MeasurementName"/>  <!-- Единица измерения величины  -->
+							<xs:element type="xs:string" name="MeasurementGroupCode"/>  <!-- Код измеряемой величины  -->
 						</xs:sequence>
 					</xs:complexType>
 				</xs:element>
 				<xs:element maxOccurs="unbounded" name="Values"> <!-- Значения параметров -->
 					<xs:complexType>
 						<xs:sequence>
-							<xs:element name="DeviceID" type="xs:string"/>
-							<xs:element name="ParameterID" type="xs:string"/>
-							<xs:element name="Value" type="xs:string"/>
-							<xs:element name="uid" type="xs:string"/>
-							<xs:element name="ValueID" type="xs:string"/>
+							<xs:element name="ModificationID" type="xs:string"/>  <!-- Уникальный идентификатор модификации -->
+							<xs:element name="ParameterID" type="xs:string"/>  <!-- Уникальный идентификатор параметра -->
+							<xs:element name="Value" type="xs:string"/>  <!-- Значение параметра -->
+							<xs:element name="ValueID" type="xs:string"/>  <!-- Уникальный идентификатор справочного значения параметра -->
 						</xs:sequence>
 					</xs:complexType>
 				</xs:element>
