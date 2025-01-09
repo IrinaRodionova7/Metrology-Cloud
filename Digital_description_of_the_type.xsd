@@ -11,8 +11,8 @@
 				<xs:element type="xs:string" name="ManufacturerName"/>  <!-- Изготовитель -->
 				<xs:element type="xs:string" name="CountryISO"/>  <!-- Код страны -->
 				<xs:element type="xs:string" name="Purpose"/>  <!-- Назначение -->
-				<xs:element type="xs:string" name="Description"/> <!-- Описание -->
-				<xs:element maxOccurs="unbounded" name="Devices"> <!-- Модификации -->
+				<xs:element type="xs:string" name="Description"/>  <!-- Описание -->
+				<xs:element maxOccurs="unbounded" name="Devices">  <!-- Модификации -->
 					<xs:complexType>
 						<xs:sequence>
 							<xs:element type="xs:string" name="uid"/>
