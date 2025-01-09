@@ -25,6 +25,7 @@
 							<xs:element type="xs:string" name="Implementation"/>  <!--Код исполнения -->
 							<xs:element type="xs:string" name="ManufacturerName"/>  <!-- Изготовитель -->
 							<xs:element type="xs:string" name="3dModel"/>  <!-- 3D модель (файл) -->
+							<xs:element type="xs:string" name="Foto"/>  <!-- Фото (файл) -->
 						</xs:sequence>
 					</xs:complexType>
 				</xs:element>
