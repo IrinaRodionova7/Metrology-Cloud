@@ -5,32 +5,32 @@
 		<xs:complexType>
 			<xs:sequence>
 				<xs:element type="xs:string" name="uid"/>  <!-- Уникальный идентификатор типа СИ -->
-				<xs:element type="xs:string" name="Title"/>  <!-- Наименование типа СИ -->
-				<xs:element type="xs:string" name="Name"/>  <!-- Тип СИ -->
+				<xs:element type="xs:string" name="NameType"/>  <!-- Наименование типа СИ -->
+				<xs:element type="xs:string" name="Type"/>  <!-- Тип СИ -->
 				<xs:element type="xs:string" name="GosNumber"/>  <!-- Регистрационный номер типа СИ -->
 				<xs:element type="xs:string" name="ManufacturerName"/>  <!-- Изготовитель -->
 				<xs:element type="xs:string" name="CountryISO"/>  <!-- Код страны -->
 				<xs:element type="xs:string" name="Purpose"/>  <!-- Назначение -->
 				<xs:element type="xs:string" name="Description"/>  <!-- Описание -->
-				<xs:element maxOccurs="unbounded" name="Devices">  <!-- Модификации -->
+				<xs:element maxOccurs="unbounded" name="Modifications">  <!-- Комбинации модификацй -->
 					<xs:complexType>
 						<xs:sequence>
-							<xs:element type="xs:string" name="uid"/>
-							<xs:element type="xs:string" name="CategoryID"/>
-							<xs:element type="xs:string" name="CategoryName"/>
-							<xs:element type="xs:string" name="MitypeTitle"/>
-							<xs:element type="xs:string" name="MitypeNumber"/>
-							<xs:element type="xs:string" name="MitypeType"/>
-							<xs:element type="xs:string" name="Modification"/>
-							<xs:element type="xs:string" name="Implementation"/>
-							<xs:element type="xs:string" name="ManufacturerName"/>
+							<xs:element type="xs:string" name="uid"/>  <!-- Уникальный идентификатор модификации -->
+							<xs:element type="xs:string" name="CategoryID"/>  <!-- ID типовой формы -->
+							<xs:element type="xs:string" name="CategoryName"/>  <!-- Наименование типовой формы -->
+							<xs:element type="xs:string" name="NameType"/>  <!-- Наименование типа СИ -->
+							<xs:element type="xs:string" name="Type"/>  <!-- Тип СИ -->						
+							<xs:element type="xs:string" name="GosNumber"/>  <!-- Регистрационный номер типа СИ -->
+							<xs:element type="xs:string" name="Modification"/>  <!--Модификация -->
+							<xs:element type="xs:string" name="Implementation"/>  <!--Код исполнения -->
+							<xs:element type="xs:string" name="ManufacturerName"/>  <!-- Изготовитель -->
 						</xs:sequence>
 					</xs:complexType>
 				</xs:element>
-				<xs:element maxOccurs="unbounded" name="Parameters"> <!-- Параметры -->
+				<xs:element maxOccurs="unbounded" name="Parameters">  <!-- Параметры -->
 					<xs:complexType>
 						<xs:sequence>
-							<xs:element type="xs:string" name="ParameterID"/>
+							<xs:element type="xs:string" name="ParameterID"/>   <!-- Уникальный идентификатор номер параметра -->
 							<xs:element type="xs:string" name="ParameterSectionNameID"/>
 							<xs:element type="xs:string" name="ParameterSectionName"/>
 							<xs:element type="xs:string" name="ParameterName"/>
