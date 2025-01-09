@@ -6,7 +6,7 @@
 			<xs:sequence>
 				<xs:element type="xs:string" name="uid"/>  <!-- Уникальный идентификатор типа СИ -->
 				<xs:element type="xs:string" name="TypeName"/>  <!-- Наименование типа СИ -->
-				<xs:element type="xs:string" name="Type"/>  <!-- Тип СИ -->
+				<xs:element type="xs:string" name="TypeDesignation"/>  <!-- Тип СИ -->
 				<xs:element type="xs:string" name="GosNumber"/>  <!-- Регистрационный номер типа СИ -->
 				<xs:element type="xs:string" name="ManufacturerName"/>  <!-- Изготовитель -->
 				<xs:element type="xs:string" name="CountryISO"/>  <!-- Код страны -->
@@ -19,7 +19,7 @@
 							<xs:element type="xs:string" name="CategoryID"/>  <!-- ID типовой формы -->
 							<xs:element type="xs:string" name="CategoryName"/>  <!-- Наименование типовой формы -->
 							<xs:element type="xs:string" name="TypeName"/>  <!-- Наименование типа СИ -->
-							<xs:element type="xs:string" name="Type"/>  <!-- Тип СИ -->						
+							<xs:element type="xs:string" name="TypeDesignation"/>  <!-- Тип СИ -->						
 							<xs:element type="xs:string" name="GosNumber"/>  <!-- Регистрационный номер типа СИ -->
 							<xs:element type="xs:string" name="Modification"/>  <!--Модификация -->
 							<xs:element type="xs:string" name="Implementation"/>  <!--Код исполнения -->
