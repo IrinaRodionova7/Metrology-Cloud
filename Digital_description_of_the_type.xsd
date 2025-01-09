@@ -4,15 +4,15 @@
 	<xs:element name="root">
 		<xs:complexType>
 			<xs:sequence>
-				<xs:element type="xs:string" name="uid"/>
-				<xs:element type="xs:string" name="Title"/>
-				<xs:element type="xs:string" name="Name"/>
-				<xs:element type="xs:string" name="GosNumber"/>
-				<xs:element type="xs:string" name="ManufacturerName"/>
-				<xs:element type="xs:string" name="CountryISO"/>
-				<xs:element type="xs:string" name="Purpose"/>
-				<xs:element type="xs:string" name="Description"/>
-				<xs:element maxOccurs="unbounded" name="Devices">
+				<xs:element type="xs:string" name="uid"/>  <!-- Уникальный идентификатор типа СИ -->
+				<xs:element type="xs:string" name="Title"/>  <!-- Наименование типа СИ -->
+				<xs:element type="xs:string" name="Name"/>  <!-- Тип СИ -->
+				<xs:element type="xs:string" name="GosNumber"/>  <!-- Регистрационный номер типа СИ -->
+				<xs:element type="xs:string" name="ManufacturerName"/>  <!-- Изготовитель -->
+				<xs:element type="xs:string" name="CountryISO"/>  <!-- Код страны -->
+				<xs:element type="xs:string" name="Purpose"/>  <!-- Назначение -->
+				<xs:element type="xs:string" name="Description"/> <!-- Описание -->
+				<xs:element maxOccurs="unbounded" name="Devices"> <!-- Модификации -->
 					<xs:complexType>
 						<xs:sequence>
 							<xs:element type="xs:string" name="uid"/>
@@ -27,7 +27,7 @@
 						</xs:sequence>
 					</xs:complexType>
 				</xs:element>
-				<xs:element maxOccurs="unbounded" name="Parameters">
+				<xs:element maxOccurs="unbounded" name="Parameters"> <!-- Параметры -->
 					<xs:complexType>
 						<xs:sequence>
 							<xs:element type="xs:string" name="ParameterID"/>
@@ -40,7 +40,7 @@
 						</xs:sequence>
 					</xs:complexType>
 				</xs:element>
-				<xs:element maxOccurs="unbounded" name="Values">
+				<xs:element maxOccurs="unbounded" name="Values"> <!-- Значения параметров -->
 					<xs:complexType>
 						<xs:sequence>
 							<xs:element name="DeviceID" type="xs:string"/>
