@@ -29,13 +29,13 @@
 						</xs:sequence>
 					</xs:complexType>
 				</xs:element>
-				<xs:element maxOccurs="unbounded" name="Parameters">  <!-- Параметры -->
+				<xs:element maxOccurs="unbounded" name="Property">  <!-- Параметры -->
 					<xs:complexType>
 						<xs:sequence>
-							<xs:element type="xs:string" name="ParameterID"/>   <!-- Уникальный идентификатор параметра -->
-							<xs:element type="xs:string" name="ParameterSectionName"/>  <!-- Наименование группы параметров -->
-							<xs:element type="xs:string" name="ParameterName"/>  <!-- Наименование параметра -->
-							<xs:element type="xs:string" name="ParameterDetailName"/>  <!-- Детализированное наименование параметра -->
+							<xs:element type="xs:string" name="PropertyID"/>   <!-- Уникальный идентификатор параметра -->
+							<xs:element type="xs:string" name="PropertySectionName"/>  <!-- Наименование группы параметров -->
+							<xs:element type="xs:string" name="PropertyName"/>  <!-- Наименование параметра -->
+							<xs:element type="xs:string" name="PropertyDetailName"/>  <!-- Детализированное наименование параметра -->
 							<xs:element type="xs:string" name="MeasurementName"/>  <!-- Единица измерения величины  -->
 							<xs:element type="xs:string" name="MeasurementGroupCode"/>  <!-- Код измеряемой величины  -->
 						</xs:sequence>
