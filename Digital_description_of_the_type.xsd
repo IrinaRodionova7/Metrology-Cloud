@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema
 	xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	xmlns:ucum="http://unitsofmeasure.org/ucum"
+	xmlns:si="http://si-digital-framework.org/SI/units"
+	xmlns:eclass="urn:eclass:xml-schema:common"
+	xmlns:nist="http://nist.gov/dcc"
+	targetNamespace="http://example.com/sensor"
+	elementFormDefault="qualified">
+<!-- Импорт схем UCUM, SI Reference Point, ECLASS, и NIST DCC -->
+<xs:import namespace="http://unitsofmeasure.org/ucum" schemaLocation="ucum.xsd"/>
+<xs:import namespace="http://si-digital-framework.org/SI/units" schemaLocation="si_units.xsd"/>
+<xs:import namespace="urn:eclass:xml-schema:common" schemaLocation="eclass_common.xsd"/>
+<xs:import namespace="http://nist.gov/dcc" schemaLocation="nist_dcc.xsd"/>
 	<xs:element name="root">
 		<xs:complexType>
 			<xs:sequence>
@@ -36,8 +47,10 @@
 							<xs:element type="xs:string" name="PropertySectionName"/>  <!-- Наименование группы параметров -->
 							<xs:element type="xs:string" name="PropertyName"/>  <!-- Наименование параметра -->
 							<xs:element type="xs:string" name="PropertyDetailName"/>  <!-- Детализированное наименование параметра -->
-							<xs:element type="xs:string" name="MeasurementName"/>  <!-- Единица измерения величины  -->
-							<xs:element type="xs:string" name="MeasurementGroupCode"/>  <!-- Код измеряемой величины  -->
+							<xs:element type="ucum:UnitCode" name="MeasurementName"/>  <!-- Единица измерения величины (UCUM) -->
+							<xs:element type="xs:anyURI" name="UnitURI"/>  <!-- URI из SI Reference Point -->
+							<xs:element type="eclass:ReferenceType" name="ECLASSReference"/>  <!-- Ссылка на ECLASS -->
+							<xs:element type="xs:string" name="MeasurementGroupCode"/>  <!-- Код измеряемой величины в РФ  -->
 						</xs:sequence>
 					</xs:complexType>
 				</xs:element>
