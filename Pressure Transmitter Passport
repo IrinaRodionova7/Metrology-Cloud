@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Device xmlns:qudt="http://qudt.org/schema/qudt/" 
+        xmlns:ucum="http://unitsofmeasure.org/ucum"
+        xmlns:ptb="https://si.pion.ptb.de/quantity/"
+        xmlns:eclass="http://www.eclass.de/schema/"
+        xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+
+  <Passport standard="ГОСТ Р 70991-2023">
+    <Type>Преобразователь давления</Type>
+    <Model>EJX-530A</Model>
+    <SerialNumber>123456789</SerialNumber>
+    <Manufacturer>
+      <Name>Yokogawa Electric Corporation</Name>
+      <Country>JP</Country>
+      <EclassClass>27-20-06-11</EclassClass>
+    </Manufacturer>
+    <ProductionDate>2023-12-01</ProductionDate>
+    <CommissioningDate>2024-02-15</CommissioningDate>
+  </Passport>
+
+  <Parameter conceptID="urn:iec:11179:parameter:BAF516">
+    <Name>Диапазон измерений</Name>
+    <Quantity qudt:quantityIRI="http://qudt.org/vocab/quantity#Pressure">
+      Давление
+    </Quantity>
+    <ValueRange>
+      <Min>0</Min>
+      <Max>10</Max>
+      <Unit>МПа</Unit>
+      <qudt:unitIRI>http://qudt.org/vocab/unit/MEGA-PA</qudt:unitIRI>
+      <ucum:code>MPa</ucum:code>
+      <ptb:siReferencePoint rdf:resource="https://si.pion.ptb.de/quantity/pressure"/>
+    </ValueRange>
+  </Parameter>
+
+  <MetrologicalCharacteristics>
+    <Accuracy class="0.075%" standardRef="ГОСТ 8.009-84:5.2"/>
+    <Sensitivity>0.001 МПа</Sensitivity>
+    <Range>
+      <Min>0</Min>
+      <Max>10</Max>
+      <Unit>МПа</Unit>
+    </Range>
+  </MetrologicalCharacteristics>
+
+  <FIFSubmission>
+    <TypeDesignation>EJX-530A</TypeDesignation>
+    <SIKind>Преобразователь давления</SIKind>
+    <PrimaryMetrologicalCharacteristics>
+      <Characteristic name="Пределы допускаемой основной погрешности">
+        <Value>±0,075%</Value>
+      </Characteristic>
+    </PrimaryMetrologicalCharacteristics>
+    <IntercalibrationInterval unit="год">2</IntercalibrationInterval>
+  </FIFSubmission>
+
+  <Reliability>
+    <MTBF unit="ч">120000</MTBF>
+    <FailureRate unit="1/ч">1.2e-5</FailureRate>
+    <Availability>0.9987</Availability>
+  </Reliability>
+
+  <References>
+    <Reference>
+      <Standard>ГОСТ Р 8.674-2009</Standard>
+      <Citation>ГОСТ Р 8.674-2009. Государственная система обеспечения единства измерений. СИ. Порядок представления сведений для ФИФ.</Citation>
+    </Reference>
+    <Reference>
+      <Standard>ISO/IEC 11179-1:2023</Standard>
+      <Citation>ISO/IEC 11179-1:2023 Information technology — Metadata registries (MDR) — Part 1: Framework</Citation>
+    </Reference>
+  </References>
+
+</Device>
