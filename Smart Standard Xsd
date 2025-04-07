@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:sm="http://smart-standard.org/schema"
+           targetNamespace="http://smart-standard.org/schema"
+           elementFormDefault="qualified">
+
+  <!-- Базовая информация о стандарте -->
+  <xs:element name="SmartStandard" type="sm:SmartStandardType"/>
+
+  <xs:complexType name="SmartStandardType">
+    <xs:sequence>
+      <xs:element name="Metadata" type="sm:MetadataType"/>
+      <xs:element name="Classifications" type="sm:ClassificationsType"/>
+      <xs:element name="Properties" type="sm:PropertiesType"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <!-- Метаданные -->
+  <xs:complexType name="MetadataType">
+    <xs:sequence>
+      <xs:element name="Title" type="sm:LocalizedTextType"/>
+      <xs:element name="Identifier" type="xs:string"/>
+      <xs:element name="Version" type="xs:string"/>
+      <xs:element name="Publisher" type="xs:string"/>
+      <xs:element name="Status" type="xs:string"/>
+      <xs:element name="LastUpdate" type="xs:date"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <!-- Локализованный текст -->
+  <xs:complexType name="LocalizedTextType">
+    <xs:sequence>
+      <xs:element name="LangString" maxOccurs="unbounded">
+        <xs:complexType>
+          <xs:simpleContent>
+            <xs:extension base="xs:string">
+              <xs:attribute name="lang" type="xs:language" use="required"/>
+            </xs:extension>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <!-- Классификации -->
+  <xs:complexType name="ClassificationsType">
+    <xs:sequence>
+      <xs:element name="Class" maxOccurs="unbounded">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="IRDI" type="xs:string"/>
+            <xs:element name="PreferredName" type="sm:LocalizedTextType"/>
+            <xs:element name="Definition" type="sm:LocalizedTextType" minOccurs="0"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <!-- Свойства -->
+  <xs:complexType name="PropertiesType">
+    <xs:sequence>
+      <xs:element name="Property" maxOccurs="unbounded">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="IRDI" type="xs:string"/>
+            <xs:element name="Name" type="sm:LocalizedTextType"/>
+            <xs:element name="DataType" type="xs:string"/>
+            <xs:element name="Unit" type="xs:string" minOccurs="0"/>
+            <xs:element name="Description" type="sm:LocalizedTextType" minOccurs="0"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+</xs:schema>
