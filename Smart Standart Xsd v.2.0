@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:gml="http://www.opengis.net/gml/3.2"
+           xmlns:eclass="https://www.eclass.eu"
+           xmlns:qudt="http://qudt.org/schema/qudt/"
+           xmlns:unit="http://qudt.org/vocab/unit/"
+           xmlns:dct="http://purl.org/dc/terms/"
+           xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+           xmlns:si="https://ptb.de/si"
+           targetNamespace="https://smart-standards.org/mi"
+           xmlns="https://smart-standards.org/mi"
+           elementFormDefault="qualified"
+           attributeFormDefault="unqualified">
+
+  <!-- Root element -->
+  <xs:element name="MeasuringInstrumentType" type="MeasuringInstrumentTypeType"/>
+
+  <xs:complexType name="MeasuringInstrumentTypeType">
+    <xs:sequence>
+      <xs:element name="UID" type="xs:string"/>
+      <xs:element name="Title" type="xs:string"/>
+      <xs:element name="TypeName" type="xs:string"/>
+      <xs:element name="RegistrationNumber" type="xs:string"/>
+      <xs:element name="Manufacturer" type="ManufacturerType"/>
+      <xs:element name="Purpose" type="xs:string"/>
+      <xs:element name="Description" type="xs:string"/>
+      <xs:element name="DeviceInstances" type="DeviceListType"/>
+      <xs:element name="Parameters" type="ParameterListType"/>
+      <xs:element name="ParameterValues" type="ParameterValueListType"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="ManufacturerType">
+    <xs:sequence>
+      <xs:element name="Name" type="xs:string"/>
+      <xs:element name="CountryISO" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="DeviceListType">
+    <xs:sequence>
+      <xs:element name="Device" type="DeviceType" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="DeviceType">
+    <xs:sequence>
+      <xs:element name="UID" type="xs:string"/>
+      <xs:element name="CategoryID" type="xs:string"/>
+      <xs:element name="CategoryName" type="xs:string"/>
+      <xs:element name="Model" type="xs:string"/>
+      <xs:element name="Implementation" type="xs:string"/>
+      <xs:element name="Manufacturer" type="ManufacturerType"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="ParameterListType">
+    <xs:sequence>
+      <xs:element name="Parameter" type="ParameterType" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="ParameterType">
+    <xs:sequence>
+      <xs:element name="ID" type="xs:string"/>
+      <xs:element name="Section" type="xs:string"/>
+      <xs:element name="Name" type="xs:string"/>
+      <xs:element name="DetailName" type="xs:string"/>
+      <xs:element name="Unit" type="xs:string"/>
+      <xs:element name="UnitURI" type="xs:anyURI" minOccurs="0"/>
+      <xs:element name="QUDTClass" type="xs:anyURI" minOccurs="0"/>
+      <xs:element name="MeasurementGroupCode" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="ParameterValueListType">
+    <xs:sequence>
+      <xs:element name="Value" type="ParameterValueType" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="ParameterValueType">
+    <xs:sequence>
+      <xs:element name="DeviceUID" type="xs:string"/>
+      <xs:element name="ParameterID" type="xs:string"/>
+      <xs:element name="Value" type="xs:string"/>
+      <xs:element name="ValueID" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+</xs:schema>
