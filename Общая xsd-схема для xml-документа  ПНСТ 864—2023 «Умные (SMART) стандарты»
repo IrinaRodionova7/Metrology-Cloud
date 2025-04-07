@@ -1,0 +1,468 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+<!-- smart-document-edition -->
+
+<xs:element name="smart-document-edition" type="smart-document-edition-type" />
+
+<xs:complexType name="smart-document-edition-type">
+<xs:sequence>
+<xs:element name="attributes" type="attributes-type" minOccurs="0" maxOccurs="unbounded" />
+<xs:element name="associated-docs" type="associated-docs-type" minOccurs="0" maxOccurs="unbounded" />
+<xs:element name="original-text" type="original-text-type" minOccurs="0" maxOccurs="unbounded"
+/>
+<xs:element name="smart-text" type="smart-text-type" minOccurs="0" maxOccurs="unbounded" />
+<xs:element name="license" type="license-type" minOccurs="0" maxOccurs="unbounded" />
+<xs:element name="document-meta" type="document-meta-type" minOccurs="0"
+maxOccurs="unbounded" />
+<xs:element name="signatures" type="signatures-type" minOccurs="0" maxOccurs="unbounded" />
+</xs:sequence>
+<xs:attribute name="id" type="xs:string" use="required" />
+<xs:attribute name="parent-id" type="xs:string" />
+<xs:attribute name="blocks" type="xs:string" />
+<xs:attribute name="document-revision" type="xs:nonNegativeInteger" use="required" />
+<xs:attribute name="updated-at" type="xs:dateTime" use="required" />
+<xs:attribute name="source-edition-id" type="xs:string" use="required" />
+</xs:complexType>
+
+<!-- blocks -->
+
+<xs:complexType name="attributes-type">
+<xs:sequence>
+<xs:element name="attribute" type="attribute-type" minOccurs="0" maxOccurs="unbounded" />
+</xs:sequence>
+<xs:attribute name="id" type="xs:string" use="required" />
+<xs:attribute name="parent-id" type="xs:string" />
+<xs:attribute name="revision" type="xs:nonNegativeInteger" use="required" />
+<xs:attribute name="updated-at" type="xs:dateTime" use="required" />
+<xs:attribute name="elements" type="xs:string" />
+<xs:anyAttribute processContents="skip" />
+</xs:complexType>
+
+<xs:complexType name="associated-docs-type">
+<xs:choice maxOccurs="unbounded">
+<xs:element name="link" type="link-type" minOccurs="0" maxOccurs="unbounded" />
+<xs:element name="file" type="file-type" minOccurs="0" maxOccurs="unbounded" />
+</xs:choice>
+<xs:attribute name="id" type="xs:string" use="required" />
+<xs:attribute name="parent-id" type="xs:string" />
+ 
+
+
+<xs:attribute name="revision" type="xs:nonNegativeInteger" use="required" />
+<xs:attribute name="updated-at" type="xs:dateTime" use="required" />
+<xs:attribute name="elements" type="xs:string" />
+<xs:anyAttribute processContents="skip" />
+</xs:complexType>
+
+<xs:complexType name="original-text-type">
+<xs:sequence>
+<xs:element name="file" type="file-type" minOccurs="0" maxOccurs="unbounded" />
+</xs:sequence>
+<xs:attribute name="id" type="xs:string" use="required" />
+<xs:attribute name="parent-id" type="xs:string" />
+<xs:attribute name="revision" type="xs:nonNegativeInteger" use="required" />
+<xs:attribute name="updated-at" type="xs:dateTime" use="required" />
+<xs:attribute name="elements" type="xs:string" />
+<xs:anyAttribute processContents="skip" />
+</xs:complexType>
+
+<xs:complexType name="smart-text-type">
+<xs:sequence>
+<xs:element name="structure-item" type="structure-item-type" minOccurs="0" maxOccurs="unbounded" />
+</xs:sequence>
+<xs:attribute name="id" type="xs:string" use="required" />
+<xs:attribute name="parent-id" type="xs:string" />
+<xs:attribute name="revision" type="xs:nonNegativeInteger" use="required" />
+<xs:attribute name="updated-at" type="xs:dateTime" use="required" />
+<xs:attribute name="elements" type="xs:string" />
+<xs:anyAttribute processContents="skip" />
+</xs:complexType>
+
+<xs:complexType name="license-type">
+<xs:choice maxOccurs="unbounded">
+<xs:element name="link" type="link-type" minOccurs="0" maxOccurs="unbounded" />
+<xs:element name="file" type="file-type" minOccurs="0" maxOccurs="unbounded" />
+</xs:choice>
+<xs:attribute name="id" type="xs:string" use="required" />
+<xs:attribute name="parent-id" type="xs:string" />
+<xs:attribute name="revision" type="xs:nonNegativeInteger" use="required" />
+<xs:attribute name="updated-at" type="xs:dateTime" use="required" />
+<xs:attribute name="elements" type="xs:string" />
+<xs:anyAttribute processContents="skip" />
+</xs:complexType>
+
+<xs:complexType name="document-meta-type">
+<xs:choice maxOccurs="unbounded">
+<xs:element name="file" type="file-type" minOccurs="0" maxOccurs="unbounded" />
+<xs:element name="link" type="link-type" minOccurs="0" maxOccurs="unbounded" />
+<xs:element name="classifier-link" type="classifier-link-type" minOccurs="0" maxOccurs="unbounded" />
+<xs:element name="characteristic" type="characteristic-type" minOccurs="0" maxOccurs="unbounded" />
+<xs:element name="parameter" type="parameter-type" minOccurs="0" maxOccurs="unbounded" />
+<xs:element name="picture" type="picture-type" minOccurs="0" maxOccurs="unbounded" />
+<xs:element name="formula" type="formula-type" minOccurs="0" maxOccurs="unbounded" />
+ 
+
+
+<xs:element name="obj-3d" type="obj-3d-type" minOccurs="0" maxOccurs="unbounded" />
+<xs:element name="video" type="video-type" minOccurs="0" maxOccurs="unbounded" />
+<xs:element name="audio" type="audio-type" minOccurs="0" maxOccurs="unbounded" />
+<xs:element name="database" type="obj-3d-type" minOccurs="0" maxOccurs="unbounded" />
+<xs:element name="code" type="code-type" minOccurs="0" maxOccurs="unbounded" />
+<xs:element name="regulation" type="regulation-type" minOccurs="0" maxOccurs="unbounded" />
+<xs:element name="term" type="term-type" minOccurs="0" maxOccurs="unbounded" />
+</xs:choice>
+<xs:attribute name="id" type="xs:string" use="required" />
+<xs:attribute name="revision" type="xs:nonNegativeInteger" use="required" />
+<xs:attribute name="updated-at" type="xs:dateTime" use="required" />
+<xs:attribute name="parent-id" type="xs:string" />
+<xs:attribute name="elements" type="xs:string" />
+<xs:anyAttribute processContents="skip" />
+</xs:complexType>
+
+<xs:complexType name="signatures-type">
+<xs:sequence>
+<xs:element name="signature-info" type="signature-info-type" maxOccurs="unbounded" />
+</xs:sequence>
+<xs:attribute name="id" type="xs:string" use="required" />
+<xs:attribute name="revision" type="xs:nonNegativeInteger" use="required" />
+<xs:attribute name="updated-at" type="xs:dateTime" use="required" />
+<xs:attribute name="parent-id" type="xs:string" />
+<xs:attribute name="elements" type="xs:string" />
+<xs:anyAttribute processContents="skip" />
+</xs:complexType>
+
+<!-- elements -->
+
+<xs:complexType name="attribute-type">
+<xs:choice maxOccurs="unbounded">
+<xs:element name="link" type="link-type" minOccurs="0" maxOccurs="unbounded" />
+<xs:element name="classifier-link" type="classifier-link-type" minOccurs="0" maxOccurs="unbounded" />
+</xs:choice>
+<xs:attribute name="id" type="xs:string" use="required" />
+<xs:attribute name="parent-id" type="xs:string" />
+<xs:attribute name="elements" type="xs:string" />
+<xs:attribute name="revision" type="xs:nonNegativeInteger" use="required" />
+<xs:attribute name="updated-at" type="xs:dateTime" use="required" />
+<xs:attribute name="name" type="xs:string" use="required"/>
+<xs:attribute name="value" type="xs:string" use="required"/>
+<xs:anyAttribute processContents="skip" />
+</xs:complexType>
+
+<xs:complexType name="file-type" >
+<xs:choice maxOccurs="unbounded">
+<xs:element name="link" type="link-type" minOccurs="0" maxOccurs="unbounded" />
+<xs:element name="classifier-link" type="classifier-link-type" minOccurs="0" maxOccurs="unbounded" />
+</xs:choice>
+<xs:attribute name="id" type="xs:string" use="required" />
+<xs:attribute name="parent-id" type="xs:string" />
+<xs:attribute name="elements" type="xs:string" />
+ 
+
+
+<xs:attribute name="revision" type="xs:nonNegativeInteger" use="required" />
+<xs:attribute name="updated-at" type="xs:dateTime" use="required" />
+<xs:attribute name="src" type="xs:string" use="required" />
+<xs:attribute name="format" type="xs:string" />
+<xs:attribute name="description" type="xs:string" />
+<xs:attribute name="checksum" type="xs:string" />
+<xs:attribute name="algorithm" type="xs:string" />
+<xs:anyAttribute processContents="skip" />
+</xs:complexType>
+
+<xs:complexType name="structure-item-type" mixed="true">
+<xs:choice maxOccurs="unbounded">
+<xs:element name="structure-item" type="structure-item-type" minOccurs="0" maxOccurs="unbounded" />
+<xs:element name="view" type="view-type" minOccurs="0" maxOccurs="unbounded" />
+<xs:element name="term" type="term-type" minOccurs="0" maxOccurs="unbounded" />
+<xs:element name="link" type="link-type" minOccurs="0" maxOccurs="unbounded" />
+<xs:element name="classifier-link" type="classifier-link-type" minOccurs="0" maxOccurs="unbounded" />
+<xs:element name="regulation" type="regulation-type" minOccurs="0" maxOccurs="unbounded" />
+</xs:choice>
+<xs:attribute name="id" type="xs:string" use="required" />
+<xs:attribute name="parent-id" type="xs:string" />
+<xs:attribute name="elements" type="xs:string" />
+<xs:attribute name="revision" type="xs:nonNegativeInteger" use="required" />
+<xs:attribute name="updated-at" type="xs:dateTime" use="required" />
+<xs:attribute name="number" type="xs:string" use="required" />
+<xs:attribute name="name" type="xs:string" />
+<xs:attribute name="is-contents-part" type="xs:boolean" use="required" />
+<xs:anyAttribute processContents="skip" />
+</xs:complexType>
+
+<xs:complexType name="view-type" >
+<xs:attribute name="id" type="xs:string" use="required" />
+<xs:attribute name="parent-id" type="xs:string" />
+<xs:attribute name="revision" type="xs:nonNegativeInteger" use="required" />
+<xs:attribute name="updated-at" type="xs:dateTime" use="required" />
+<xs:attribute name="type" type="xs:string" />
+<xs:attribute name="format" type="xs:string" />
+<xs:attribute name="content" type="xs:string" />
+<xs:attribute name="src" type="xs:string" />
+<xs:anyAttribute processContents="skip" />
+</xs:complexType>
+
+<xs:complexType name="term-type">
+<xs:choice maxOccurs="unbounded">
+<xs:element name="view" type="view-type" minOccurs="0" maxOccurs="unbounded" />
+<xs:element name="term" type="term-type" minOccurs="0" maxOccurs="unbounded" />
+<xs:element name="link" type="link-type" minOccurs="0" maxOccurs="unbounded" />
+<xs:element name="classifier-link" type="classifier-link-type" minOccurs="0" maxOccurs="unbounded" />
+</xs:choice>
+<xs:attribute name="id" type="xs:string" use="required" />
+<xs:attribute name="parent-id" type="xs:string" />
+<xs:attribute name="elements" type="xs:string" />
+<xs:attribute name="revision" type="xs:nonNegativeInteger" use="required" />
+ 
+
+
+<xs:attribute name="updated-at" type="xs:dateTime" use="required" />
+<xs:attribute name="name" type="xs:string" use="required" />
+<xs:attribute name="content" type="xs:string" />
+<xs:anyAttribute processContents="skip" />
+</xs:complexType>
+
+<xs:complexType name="link-type" mixed="true">
+<xs:sequence>
+<xs:element name="classifier-link" type="classifier-link-type" minOccurs="0" maxOccurs="unbounded" />
+</xs:sequence>
+<xs:attribute name="id" type="xs:string" use="required" />
+<xs:attribute name="parent-id" type="xs:string" />
+<xs:attribute name="elements" type="xs:string" />
+<xs:attribute name="revision" type="xs:nonNegativeInteger" use="required" />
+<xs:attribute name="updated-at" type="xs:dateTime" use="required" />
+<xs:attribute name="document-id" type="xs:string" />
+<xs:attribute name="edition-id" type="xs:string" />
+<xs:attribute name="block-id" type="xs:string" />
+<xs:attribute name="element-id" type="xs:string" />
+<xs:attribute name="object-class" type="xs:string" />
+<xs:anyAttribute processContents="skip" />
+</xs:complexType>
+
+<xs:complexType name="classifier-link-type">
+<xs:sequence>
+<xs:element name="link" type="link-type" minOccurs="0" maxOccurs="unbounded" />
+</xs:sequence>
+<xs:attribute name="id" type="xs:string" use="required" />
+<xs:attribute name="parent-id" type="xs:string" />
+<xs:attribute name="elements" type="xs:string" />
+<xs:attribute name="revision" type="xs:nonNegativeInteger" use="required" />
+<xs:attribute name="updated-at" type="xs:dateTime" use="required" />
+<xs:attribute name="classifier-location" type="xs:string" use="required" />
+<xs:attribute name="classifier-id" type="xs:string" use="required" />
+<xs:attribute name="classifier-element-id" type="xs:string" use="required" />
+<xs:attribute name="classifier-element-version" type="xs:string" />
+<xs:anyAttribute processContents="skip" />
+</xs:complexType>
+
+<xs:complexType name="regulation-type">
+<xs:choice maxOccurs="unbounded">
+<xs:element name="attribute" type="attribute-type" minOccurs="0" maxOccurs="unbounded" />
+<xs:element name="file" type="file-type" minOccurs="0" maxOccurs="unbounded" />
+<xs:element name="view" type="view-type" minOccurs="0" maxOccurs="unbounded" />
+<xs:element name="term" type="term-type" minOccurs="0" maxOccurs="unbounded" />
+<xs:element name="link" type="link-type" minOccurs="0" maxOccurs="unbounded" />
+<xs:element name="classifier-link" type="classifier-link-type" minOccurs="0" maxOccurs="unbounded" />
+<xs:element name="regulation" type="regulation-type" minOccurs="0" maxOccurs="unbounded" />
+<xs:element name="formalized-regulation" type="formalized-regulation-type" minOccurs="0" maxOccurs="unbounded" />
+<xs:element name="characteristic" type="characteristic-type" minOccurs="0" maxOccurs="unbounded" />
+<xs:element name="parameter" type="parameter-type" minOccurs="0" maxOccurs="unbounded" />
+<xs:element name="picture" type="picture-type" minOccurs="0" maxOccurs="unbounded" />
+ 
+
+
+<xs:element name="formula" type="formula-type" minOccurs="0" maxOccurs="unbounded" />
+<xs:element name="obj-3d" type="obj-3d-type" minOccurs="0" maxOccurs="unbounded" />
+<xs:element name="video" type="video-type" minOccurs="0" maxOccurs="unbounded" />
+<xs:element name="audio" type="audio-type" minOccurs="0" maxOccurs="unbounded" />
+<xs:element name="database" type="database-type" minOccurs="0" maxOccurs="unbounded" />
+<xs:element name="code" type="code-type" minOccurs="0" maxOccurs="unbounded" />
+</xs:choice>
+<xs:attribute name="id" type="xs:string" use="required" />
+<xs:attribute name="parent-id" type="xs:string" />
+<xs:attribute name="elements" type="xs:string" />
+<xs:attribute name="revision" type="xs:nonNegativeInteger" use="required" />
+<xs:attribute name="updated-at" type="xs:dateTime" use="required" />
+<xs:attribute name="type" type="xs:nonNegativeInteger" use="required" />
+<xs:anyAttribute processContents="skip" />
+</xs:complexType>
+
+<xs:complexType name="formalized-regulation-type">
+<xs:choice maxOccurs="unbounded">
+<xs:element name="file" type="file-type" minOccurs="0" maxOccurs="unbounded" />
+<xs:element name="link" type="link-type" minOccurs="0" maxOccurs="unbounded" />
+</xs:choice>
+<xs:attribute name="id" type="xs:string" use="required" />
+<xs:attribute name="parent-id" type="xs:string" />
+<xs:attribute name="elements" type="xs:string" />
+<xs:attribute name="revision" type="xs:nonNegativeInteger" use="required" />
+<xs:attribute name="updated-at" type="xs:dateTime" use="required" />
+<xs:anyAttribute processContents="skip" />
+</xs:complexType>
+
+<xs:complexType name="characteristic-type">
+<xs:choice maxOccurs="unbounded">
+<xs:element name="link" type="link-type" minOccurs="0" maxOccurs="unbounded" />
+<xs:element name="classifier-link" type="classifier-link-type" minOccurs="0" maxOccurs="unbounded" />
+<xs:element name="parameter" type="parameter-type" minOccurs="0" maxOccurs="unbounded" />
+</xs:choice>
+<xs:attribute name="id" type="xs:string" use="required" />
+<xs:attribute name="parent-id" type="xs:string" />
+<xs:attribute name="elements" type="xs:string" />
+<xs:attribute name="revision" type="xs:nonNegativeInteger" use="required" />
+<xs:attribute name="updated-at" type="xs:dateTime" use="required" />
+<xs:attribute name="name" type="xs:string" use="required" />
+<xs:attribute name="symbol" type="xs:string" />
+<xs:anyAttribute processContents="skip" />
+</xs:complexType>
+
+<xs:complexType name="parameter-type">
+<xs:choice maxOccurs="unbounded">
+<xs:element name="link" type="link-type" minOccurs="0" maxOccurs="unbounded" />
+<xs:element name="classifier-link" type="classifier-link-type" minOccurs="0" maxOccurs="unbounded" />
+</xs:choice>
+<xs:attribute name="id" type="xs:string" use="required" />
+<xs:attribute name="parent-id" type="xs:string" />
+<xs:attribute name="elements" type="xs:string" />
+<xs:attribute name="revision" type="xs:nonNegativeInteger" use="required" />
+ 
+
+
+<xs:attribute name="updated-at" type="xs:dateTime" use="required" />
+<xs:attribute name="name" type="xs:string" />
+<xs:attribute name="symbol" type="xs:string" />
+<xs:attribute name="operator" type="xs:string" use="required" />
+<xs:attribute name="value" type="xs:string" use="required" />
+<xs:attribute name="type" type="xs:string" />
+<xs:attribute name="format" type="xs:string" />
+<xs:attribute name="precision" type="xs:string" />
+<xs:anyAttribute processContents="skip" />
+</xs:complexType>
+
+<xs:complexType name="picture-type">
+<xs:choice maxOccurs="unbounded">
+<xs:element name="link" type="link-type" minOccurs="0" maxOccurs="unbounded" />
+<xs:element name="view" type="view-type" minOccurs="0" maxOccurs="unbounded" />
+</xs:choice>
+<xs:attribute name="id" type="xs:string" use="required" />
+<xs:attribute name="parent-id" type="xs:string" />
+<xs:attribute name="elements" type="xs:string" />
+<xs:attribute name="revision" type="xs:nonNegativeInteger" use="required" />
+<xs:attribute name="updated-at" type="xs:dateTime" use="required" />
+<xs:attribute name="format" type="xs:string" use="required" />
+<xs:attribute name="src" type="xs:string" use="required" />
+<xs:anyAttribute processContents="skip" />
+</xs:complexType>
+
+<xs:complexType name="formula-type">
+<xs:choice maxOccurs="unbounded">
+<xs:element name="link" type="link-type" minOccurs="0" maxOccurs="unbounded" />
+<xs:element name="view" type="view-type" minOccurs="0" maxOccurs="unbounded" />
+</xs:choice>
+<xs:attribute name="id" type="xs:string" use="required" />
+<xs:attribute name="parent-id" type="xs:string" />
+<xs:attribute name="elements" type="xs:string" />
+<xs:attribute name="revision" type="xs:nonNegativeInteger" use="required" />
+<xs:attribute name="updated-at" type="xs:dateTime" use="required" />
+<xs:attribute name="format" type="xs:string" use="required" />
+<xs:attribute name="content" type="xs:string" />
+<xs:anyAttribute processContents="skip" />
+</xs:complexType>
+
+<xs:complexType name="obj-3d-type">
+<xs:choice maxOccurs="unbounded">
+<xs:element name="link" type="link-type" minOccurs="0" maxOccurs="unbounded" />
+<xs:element name="view" type="view-type" minOccurs="0" maxOccurs="unbounded" />
+</xs:choice>
+<xs:attribute name="id" type="xs:string" use="required" />
+<xs:attribute name="parent-id" type="xs:string" />
+<xs:attribute name="elements" type="xs:string" />
+<xs:attribute name="revision" type="xs:nonNegativeInteger" use="required" />
+<xs:attribute name="updated-at" type="xs:dateTime" use="required" />
+<xs:attribute name="format" type="xs:string" use="required" />
+<xs:attribute name="src" type="xs:string" use="required" />
+<xs:anyAttribute processContents="skip" />
+</xs:complexType>
+ 
+
+
+
+<xs:complexType name="video-type">
+<xs:choice maxOccurs="unbounded">
+<xs:element name="link" type="link-type" minOccurs="0" maxOccurs="unbounded" />
+<xs:element name="view" type="view-type" minOccurs="0" maxOccurs="unbounded" />
+</xs:choice>
+<xs:attribute name="id" type="xs:string" use="required" />
+<xs:attribute name="parent-id" type="xs:string" />
+<xs:attribute name="elements" type="xs:string" />
+<xs:attribute name="revision" type="xs:nonNegativeInteger" use="required" />
+<xs:attribute name="updated-at" type="xs:dateTime" use="required" />
+<xs:attribute name="format" type="xs:string" use="required" />
+<xs:attribute name="src" type="xs:string" use="required" />
+<xs:anyAttribute processContents="skip" />
+</xs:complexType>
+
+<xs:complexType name="audio-type">
+<xs:choice maxOccurs="unbounded">
+<xs:element name="link" type="link-type" minOccurs="0" maxOccurs="unbounded" />
+<xs:element name="view" type="view-type" minOccurs="0" maxOccurs="unbounded" />
+</xs:choice>
+<xs:attribute name="id" type="xs:string" use="required" />
+<xs:attribute name="parent-id" type="xs:string" />
+<xs:attribute name="elements" type="xs:string" />
+<xs:attribute name="revision" type="xs:nonNegativeInteger" use="required" />
+<xs:attribute name="updated-at" type="xs:dateTime" use="required" />
+<xs:attribute name="format" type="xs:string" use="required" />
+<xs:attribute name="src" type="xs:string" use="required" />
+<xs:anyAttribute processContents="skip" />
+</xs:complexType>
+
+<xs:complexType name="database-type">
+<xs:sequence>
+<xs:element name="link" type="link-type" minOccurs="0" maxOccurs="unbounded" />
+</xs:sequence>
+<xs:attribute name="id" type="xs:string" use="required" />
+<xs:attribute name="parent-id" type="xs:string" />
+<xs:attribute name="elements" type="xs:string" />
+<xs:attribute name="revision" type="xs:nonNegativeInteger" use="required" />
+<xs:attribute name="updated-at" type="xs:dateTime" use="required" />
+<xs:attribute name="format" type="xs:string" use="required" />
+<xs:attribute name="src" type="xs:string" use="required" />
+<xs:anyAttribute processContents="skip" />
+</xs:complexType>
+
+<xs:complexType name="code-type">
+<xs:sequence>
+<xs:element name="link" type="link-type" minOccurs="0" maxOccurs="unbounded" />
+</xs:sequence>
+<xs:attribute name="id" type="xs:string" use="required" />
+<xs:attribute name="parent-id" type="xs:string" />
+<xs:attribute name="elements" type="xs:string" />
+<xs:attribute name="revision" type="xs:nonNegativeInteger" use="required" />
+<xs:attribute name="updated-at" type="xs:dateTime" use="required" />
+<xs:attribute name="lang" type="xs:string" use="required" />
+ 
+
+
+<xs:attribute name="src" type="xs:string" use="required" />
+<xs:attribute name="dependencies-src" type="xs:string" />
+<xs:attribute name="dependencies-format" type="xs:string" />
+<xs:anyAttribute processContents="skip" />
+</xs:complexType>
+
+<xs:complexType name="signature-info-type">
+<xs:sequence>
+<xs:element name="link" type="link-type" minOccurs="0" maxOccurs="unbounded" />
+</xs:sequence>
+<xs:attribute name="id" type="xs:string" use="required" />
+<xs:attribute name="parent-id" type="xs:string" />
+<xs:attribute name="elements" type="xs:string" />
+<xs:attribute name="revision" type="xs:nonNegativeInteger" use="required" />
+<xs:attribute name="updated-at" type="xs:dateTime" use="required" />
+<xs:attribute name="signature" type="xs:string" use="required" />
+<xs:attribute name="signed-by" type="xs:string" use="required" />
+<xs:attribute name="key" type="xs:string" use="required" />
+<xs:anyAttribute processContents="skip" />
+</xs:complexType>
+
+</xs:schema>
