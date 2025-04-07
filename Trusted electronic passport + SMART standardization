@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Корневая XSD-схема цифрового описания типа продукции в соответствии с ПНСТ 864—2023 и ECLASS -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:smart="urn:smart:standard:864:2023"
+           targetNamespace="urn:smart:standard:864:2023"
+           elementFormDefault="qualified">
+
+  <!-- Метаданные SMART-стандарта -->
+  <xs:element name="smartStandard" type="smart:StandardMetadata"/>
+
+  <xs:complexType name="StandardMetadata">
+    <xs:sequence>
+      <xs:element name="standardName" type="xs:string"/>
+      <xs:element name="standardVersion" type="xs:string"/>
+      <xs:element name="metadata" type="smart:MetadataInfo"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="MetadataInfo">
+    <xs:sequence>
+      <xs:element name="author" type="xs:string"/>
+      <xs:element name="dateCreated" type="xs:date"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <!-- Цифровое описание типа продукции -->
+  <xs:element name="DigitalTypeDescription" type="smart:DigitalType"/>
+
+  <xs:complexType name="DigitalType">
+    <xs:sequence>
+      <xs:element name="typeID" type="xs:string"/>
+      <xs:element name="typeName" type="smart:LocalizedText"/>
+      <xs:element name="classification" type="smart:Classification"/>
+      <xs:element name="aspects" type="smart:AspectList"/>
+    </xs:sequence>
+    <xs:attribute name="version" type="xs:string" use="required"/>
+  </xs:complexType>
+
+  <!-- Локализованные названия -->
+  <xs:complexType name="LocalizedText">
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attribute name="lang" type="xs:language" use="required"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <!-- Классификатор ECLASS -->
+  <xs:complexType name="Classification">
+    <xs:sequence>
+      <xs:element name="classIRDI" type="xs:string"/>
+      <xs:element name="className" type="smart:LocalizedText"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <!-- Перечень аспектов -->
+  <xs:complexType name="AspectList">
+    <xs:sequence>
+      <xs:element name="aspect" type="smart:Aspect" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="Aspect">
+    <xs:sequence>
+      <xs:element name="aspectName" type="xs:string"/>
+      <xs:element name="property" type="smart:Property" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <!-- Свойство с IRDI и значением -->
+  <xs:complexType name="Property">
+    <xs:sequence>
+      <xs:element name="name" type="xs:string"/>
+      <xs:element name="IRDI" type="xs:string"/>
+      <xs:element name="value" type="smart:PropertyValue"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <!-- Значение свойства с UCUM-кодом -->
+  <xs:complexType name="PropertyValue">
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attribute name="unitCode" type="xs:string"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+</xs:schema>
